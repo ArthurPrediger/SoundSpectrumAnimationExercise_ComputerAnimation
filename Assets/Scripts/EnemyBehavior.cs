@@ -32,12 +32,12 @@ public class EnemyBehavior : MonoBehaviour
             Destroy(gameObject);
         }
 
-       rb.velocity += speed * Time.deltaTime * (targetPos - transform.position).normalized;
+        rb.velocity += speed * Time.deltaTime * (targetPos - transform.position).normalized;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.CompareTag("Finish"))
+        if (collision.collider.CompareTag("Finish"))
         {
             Destroy(gameObject);
         }

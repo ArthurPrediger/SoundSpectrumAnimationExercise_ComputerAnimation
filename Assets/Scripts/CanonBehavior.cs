@@ -29,9 +29,9 @@ public class CanonBehavior : MonoBehaviour
         {
             Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(r, out RaycastHit hit))
+            if (Physics.Raycast(r, out RaycastHit hit) && (hit.collider.CompareTag("Static") || hit.collider.CompareTag("Enemy")))
             {
-                for (int i = 0; i < controlPoints.Count; i++)
+                for (int i = 0; i < controlPoints.Count - 1; i++)
                 {
                     controlPoints[i] = Vector3.Lerp(hit.point, transform.position, (float)i / controlPoints.Count);
                     if (i != 0)

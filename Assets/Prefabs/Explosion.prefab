@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 3119844114126481863}
   - component: {fileID: 1966016918545254213}
   - component: {fileID: 6935035572046687181}
-  - component: {fileID: 6060164927941128633}
-  - component: {fileID: -1479592679441319099}
+  - component: {fileID: 4126644355049920979}
   m_Layer: 0
-  m_Name: Canonball
+  m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6e996df4862e9794cb1bd4d92fc8af64, type: 2}
+  - {fileID: 2100000, guid: 5050a60e9a916da4ab051be71f46392e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,34 +106,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6060164927941128633
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7350552839724140177}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!114 &-1479592679441319099
+--- !u!114 &4126644355049920979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +115,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7350552839724140177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 682193c5fdb81814385c3866bf4f427e, type: 3}
+  m_Script: {fileID: 11500000, guid: 610423d659647f841bc6a06640062708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 7350552839724140177, guid: 653c4cd65aa41304687e9126c9de24dd, type: 3}

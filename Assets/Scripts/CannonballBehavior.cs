@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CannonballBehavior : MonoBehaviour
 {
+    public GameObject explosionPrefab; 
     private float speed = 1.0f;
     private List<Vector3> bezierPoints = new List<Vector3>();
     private const int numBezierPoints = 100;
@@ -30,8 +32,18 @@ public class CannonballBehavior : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.CompareTag("Static") || collision.collider.CompareTag("Enemy"))
+        {
+            Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
     public void CalculateBezierPoints(List<Vector3> controlPoints)
     {
+        speed = (128f / Mathf.Max((controlPoints.First() - controlPoints.Last()).magnitude, 16f));
         float t = 0.0f;
         for (int i = 0; i < numBezierPoints; i++)
         {
