@@ -5,12 +5,18 @@ using UnityEngine;
 
 public class CannonballBehavior : MonoBehaviour
 {
-    public GameObject explosionPrefab; 
+    public GameObject explosionPrefab;
+    public bool isHeavyType = false;
     private float speed = 1.0f;
     private List<Vector3> bezierPoints = new List<Vector3>();
     private const int numBezierPoints = 100;
     private double bezierCurveLength;
-    float tParam = 0.0f;
+    private float tParam = 0.0f;
+
+    private float lightExplosionSpeed = 16f;
+    private float lightExplosionScale = 8f;
+    private float heavyExplosionSpeed = 32f;
+    private float heavyExplosionScale = 22f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +42,17 @@ public class CannonballBehavior : MonoBehaviour
     {
         if(collision.collider.CompareTag("Static") || collision.collider.CompareTag("Enemy"))
         {
-            Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
+            GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
+            if(isHeavyType)
+            {
+                explosion.GetComponent<ExplosionBehavior>().SetExplosionSpeedScale(heavyExplosionSpeed, heavyExplosionScale);
+                explosion.GetComponent<Renderer>().material.color = Color.black;
+            }
+            else
+            {
+                explosion.GetComponent<ExplosionBehavior>().SetExplosionSpeedScale(lightExplosionSpeed, lightExplosionScale);
+            }
+
             Destroy(gameObject);
         }
     }

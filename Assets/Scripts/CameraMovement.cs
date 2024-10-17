@@ -37,12 +37,18 @@ public class CameraMovement : MonoBehaviour
         }
 
         Vector3 moveDirection = Vector3.zero;
-        moveDirection.x = Input.GetAxis("Horizontal");
-        moveDirection.z = Input.GetAxis("Vertical");
-        moveDirection.Normalize();
+        if (Input.GetKey(KeyCode.A)) moveDirection.x -= 1f;
+        if (Input.GetKey(KeyCode.D)) moveDirection.x += 1f;
+        if (Input.GetKey(KeyCode.S)) moveDirection.z -= 1f;
+        if (Input.GetKey(KeyCode.W)) moveDirection.z += 1f;
+	
+        if (moveDirection.sqrMagnitude > 0.001f)
+        {
+            moveDirection.Normalize();
 
-        Vector3 vel = speed * Time.deltaTime * moveDirection;
+            Vector3 vel = speed * Time.deltaTime * moveDirection;
 
-        transform.Translate(vel);
+            transform.Translate(vel);
+        }
     }
 }

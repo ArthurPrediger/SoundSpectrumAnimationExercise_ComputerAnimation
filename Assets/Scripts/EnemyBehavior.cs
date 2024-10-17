@@ -39,6 +39,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (collision.collider.CompareTag("Finish"))
         {
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().IncreaseInfiltrators();
             Destroy(gameObject);
         }
     }

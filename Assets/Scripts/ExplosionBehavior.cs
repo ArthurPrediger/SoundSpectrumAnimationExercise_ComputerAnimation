@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ExplosionBehavior : MonoBehaviour
 {
-    private float explosionSpeed = 16f;
+    private float explosionSpeed = 20f;
+    private float explosionScale = 14f;
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,7 @@ public class ExplosionBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.localScale.x < 8f)
+        if(transform.localScale.x < explosionScale)
         {
             transform.localScale += explosionSpeed * Time.deltaTime * Vector3.one;
         }
@@ -30,5 +31,11 @@ public class ExplosionBehavior : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+    }
+
+    public void SetExplosionSpeedScale(float speed, float scale)
+    {
+        explosionSpeed = speed;
+        explosionScale = scale;
     }
 }

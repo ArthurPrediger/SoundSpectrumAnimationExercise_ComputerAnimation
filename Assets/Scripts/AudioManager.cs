@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = maidenSong;
 
         audioSource.Play();
-        audioSource.volume = 0.1f;
+        audioSource.volume = 0.15f;
     }
 
     // Update is called once per frame
