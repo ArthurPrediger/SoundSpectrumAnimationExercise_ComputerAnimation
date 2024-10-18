@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour
 
             audioSource.Play();
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void IncreaseInfiltrators()
